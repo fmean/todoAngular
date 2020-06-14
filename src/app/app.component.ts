@@ -21,7 +21,7 @@ import { trigger, animate, style, transition, keyframes } from '@angular/animati
           style({transform:"translateX(0px)"}),
           style({transform:"translateX(300px)"})
   
-           ]))])    
+           ]))])
       
       ])
  
@@ -29,11 +29,27 @@ import { trigger, animate, style, transition, keyframes } from '@angular/animati
 })
 
 export class AppComponent {
-  todoArray=[];
-  addTodo(value) {
-    this.todoArray.push(value)
-    console.log(this.todoArray)
+  todoArray = [];
+
+  // submit form by pressing Enter
+  todoPreSubmit(value) {
+    if (value && value.todo) {      
+      this.todoSubmit(value.todo);
+    } else {
+      this.todoSubmit("");
+    }
   }
+
+  // submit form by 'Add' button
+  todoSubmit(value:any){
+    if(value !== "" && value !== null) {
+      this.todoArray.push(value)
+      console.log(this.todoArray)
+    } else {
+      alert('Field required!')
+    }
+  }
+
   title = 'todo-app';
   
   /*delete item*/
@@ -45,13 +61,5 @@ export class AppComponent {
     }
   }
 
-  // submit form
-  todoSubmit(value:any){
-    if(value!=="") {
-      this.todoArray.push(value.todo)
-    //this.todoForm.reset()
-    } else {
-      alert('Field required **')
-    }
-}
+  
 }
