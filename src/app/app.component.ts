@@ -50,16 +50,7 @@ export class AppComponent {
     }
   }
 
-  title = 'todo-app';
-  
-  /*delete item*/
-  deleteItem(todo) {
-    for(let i=0; i <= this.todoArray.length; i++){
-      if(todo==this.todoArray[i]) {
-        this.todoArray.splice(i, 1)
-      }
-    }
+  deleteItem(taskIndex) {
+    this.todoArray.splice(taskIndex, 1)
   }
-
-  
 }

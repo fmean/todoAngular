@@ -11,8 +11,8 @@
     </div>
     <div class="data">
       <ul class="list-unstyled">
-        <li [@moveInLeft] *ngFor="let todo of todoArray">{{todo}} 
-          <i (click)="deleteItem(todo)" class="material-icons">delete</i>
+        <li [@moveInLeft] *ngFor="let task of todoArray; let taskIndex = index">{{task}} 
+          <i (click)="deleteItem(taskIndex)" class="material-icons">delete</i>
         </li>
       </ul>
     </div>
